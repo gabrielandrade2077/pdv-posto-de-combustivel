@@ -1,10 +1,20 @@
 package com.br.pdvpostocombustivel.domain.entity;
 
 
-import java.util.UUID;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 
+import java.util.UUID;
+@Entity
+@Table(name = "acesso")
 public class Acesso {
+    @Column(length = 30, nullable = false)
+
     private String usuario;
+
+    @Column(length = 25, nullable = false)
+
     private String senha;
 
     public Acesso(String usuario, String senha) {

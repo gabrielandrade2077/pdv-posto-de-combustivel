@@ -1,18 +1,28 @@
 package com.br.pdvpostocombustivel.domain.entity;
 
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
+@Entity
+@Table(name = "preco")
+
 public class Preco {
+    @Column(length = 10, nullable = false)
     private BigDecimal valor;
-    private Date  dataAlteracao;
+    @Column(length = 8, nullable = false)
+    private Date dataAlteracao;
+    @Column(length = 8, nullable = false)
     private Date horaAlteracao;
 
-    public Preco(BigDecimal valor, Date dataAlteracao, Date horaAlteracao){
+    public Preco(BigDecimal valor, Date dataAlteracao, Date horaAlteracao) {
         this.valor = valor;
-        this.dataAlteracao=dataAlteracao;
-        this.horaAlteracao=horaAlteracao;
+        this.dataAlteracao = dataAlteracao;
+        this.horaAlteracao = horaAlteracao;
     }
 
     public BigDecimal getValor() {

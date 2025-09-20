@@ -1,16 +1,21 @@
 package com.br.pdvpostocombustivel.domain.entity;
 
 
+import com.br.pdvpostocombustivel.enums.TipoPessoa;
 import jakarta.persistence.*;
 import jakarta.websocket.OnMessage;
 
 import java.time.LocalDate;
 import java.util.Date;
 
+
 @Entity
 @Table(name = "pessoa")
 
+
+
 public class Pessoa {
+
     //atributos
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,6 +31,10 @@ public class Pessoa {
     private Long numeroCtps;
     @Column(length = 10, nullable = false)
     private LocalDate dataNascimento;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "tipo_pessoa", length = 15,nullable = false)
+    private TipoPessoa tipoPessoa;
 
     //construtor
     public Pessoa(String nomeCompleto, String cpfCnpj, LocalDate dataNascimento, Long numeroCtps) {
