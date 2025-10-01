@@ -1,15 +1,16 @@
 package com.br.pdvpostocombustivel.domain.entity;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.util.Date;
 @Entity
 @Table(name = "estoque")
 public class Estoque {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(length = 10, nullable = false)
     private BigDecimal quantidade;
@@ -31,6 +32,9 @@ public class Estoque {
         this.localEndereco = localEndereco;
         this.dataValidade = dataValidade;
         this.loteFabricacao = loteFabricacao;
+    }
+
+    public Estoque() {
     }
 
     public BigDecimal getQuantidade() {

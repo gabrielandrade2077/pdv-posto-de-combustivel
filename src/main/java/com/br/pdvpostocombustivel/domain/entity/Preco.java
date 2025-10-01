@@ -1,9 +1,7 @@
 package com.br.pdvpostocombustivel.domain.entity;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -12,6 +10,10 @@ import java.util.Date;
 @Table(name = "preco")
 
 public class Preco {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     @Column(length = 10, nullable = false)
     private BigDecimal valor;
     @Column(length = 8, nullable = false)
@@ -23,6 +25,9 @@ public class Preco {
         this.valor = valor;
         this.dataAlteracao = dataAlteracao;
         this.horaAlteracao = horaAlteracao;
+    }
+
+    public Preco() {
     }
 
     public BigDecimal getValor() {

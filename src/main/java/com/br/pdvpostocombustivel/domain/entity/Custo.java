@@ -1,14 +1,16 @@
 package com.br.pdvpostocombustivel.domain.entity;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.Date;
 @Entity
 @Table(name = "custo")
 public class Custo {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     @Column(length = 1000, nullable = false)
     private double imposto;
     @Column(length = 1000, nullable = false)
@@ -16,16 +18,19 @@ public class Custo {
     @Column(length = 1000, nullable = false)
     private double custoFixo;
     @Column(length = 5, nullable = false)
-    private double margemlucro;
+    private double margemLucro;
     @Column(length = 8, nullable = false)
     private Date dataProcessamento;
 
-    public Custo(double imposto,double custoFixo,double custoVariavel,double margemlucro, Date dataProcessamento){
+    public Custo(double imposto,double custoFixo,double custoVariavel,double margemLucro, Date dataProcessamento){
         this.custoFixo = custoFixo;
         this.imposto = imposto;
         this.custoVariavel = custoVariavel;
-        this.margemlucro = margemlucro;
+        this.margemLucro = margemLucro;
         this.dataProcessamento = dataProcessamento;
+    }
+
+    public Custo() {
     }
 
     public Date getDataProcessamento() {
@@ -44,8 +49,8 @@ public class Custo {
         return imposto;
     }
 
-    public double getMargemlucro() {
-        return margemlucro;
+    public double getMargemLucro() {
+        return margemLucro;
     }
 
     public void setCustoFixo(double custoFixo) {
@@ -64,7 +69,7 @@ public class Custo {
         this.imposto = imposto;
     }
 
-    public void setMargemlucro(double margemlucro) {
-        this.margemlucro = margemlucro;
+    public void setMargemLucro(double margemLucro) {
+        this.margemLucro = margemLucro;
     }
 }

@@ -25,7 +25,7 @@ public interface CustoRepository extends JpaRepository<Custo, Long> {
 
     boolean existsByMargemLucro(Double margemLucro);
 
-    boolean existsBydataProcessamento(Double dataProcessamento);
+    boolean existsBydataProcessamento(Date dataProcessamento);
 
 
 }

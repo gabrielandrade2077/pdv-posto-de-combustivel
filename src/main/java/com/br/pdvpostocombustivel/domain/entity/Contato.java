@@ -1,13 +1,15 @@
 package com.br.pdvpostocombustivel.domain.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "contato")
 
 public class Contato {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     //atributos
     @Column(length = 14, nullable = false)
     private String telefone;
@@ -21,6 +23,9 @@ public class Contato {
         this.telefone = telefone;
         this.email = email;
         this.endereco = endereco;
+    }
+
+    public Contato() {
     }
 
     //getters
