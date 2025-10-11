@@ -1,15 +1,11 @@
 package com.br.pdvpostocombustivel.api.custo.dto;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
-import java.time.LocalDate;
+import java.util.Date;
 
 public record CustoRequest(
-        Double imposto,
-        Double custoVariavel,
-        Double custoFixo,
-        Double margemLucro,
-        @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-        LocalDate dataProcessamento
-) {
-}
+    double imposto,
+    double custoVariavel,
+    double custoFixo,
+    double margemLucro,
+    Date dataProcessamento
+) {}

@@ -1,13 +1,11 @@
 package com.br.pdvpostocombustivel.api.custo.dto;
 
-import java.time.LocalDate;
-
+import java.util.Date;
 
 public record CustoResponse(
-        Double imposto,
-        Double custoVariavel,
-        Double custoFixo,
-        Double margemLucro,
-        LocalDate dataProcessamento
-) {
-}
+    double imposto,
+    double custoVariavel,
+    double custoFixo,
+    double margemLucro,
+    Date dataProcessamento
+) {}
