@@ -23,7 +23,7 @@ public class AcessoService {
 
     public AcessoResponse create(AcessoRequest req) {
         Acesso novoAcesso = toEntity(req);
-        // Aqui você deveria adicionar lógica para criptografar a senha antes de salvar
+
         return toResponse(repository.save(novoAcesso));
     }
 

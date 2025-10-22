@@ -9,7 +9,7 @@ public class Produto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 100000, nullable = false)
+    @Column(length = 200, nullable = false)
     private String nome;
     @Column(length = 50, nullable = false)
     private String referencia;

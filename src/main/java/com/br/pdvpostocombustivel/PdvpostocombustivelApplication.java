@@ -16,7 +16,7 @@ import io.swagger.v3.oas.annotations.servers.Server;
                 title = "PDV Posto Combustível API",
                 version = "v1",
                 description = "API de exemplo com CRUD de Pessoas (Spring Boot 3 / Java 17).",
-                contact = @Contact(name = "Prof. Esp. Ednilton Rauh", email = "ednilton@example.com"),
+                contact = @Contact(name = "Gabriel Andrade", email = "gabrielandradecunha22@gmail.com"),
                 license = @License(name = "MIT")
         ),
         servers = {
@@ -28,8 +28,6 @@ public class PdvpostocombustivelApplication {
     public static void main(String[] args) {
         SpringApplication.run(PdvpostocombustivelApplication.class, args);
 
-        // Seu bloco de testes antigos pode ficar comentado aqui se quiser.
-        // Como estamos usando Swagger, os testes podem ser feitos pela UI:
         // http://localhost:8080/swagger-ui.html
     }
 }
