@@ -11,15 +11,15 @@ public class Custo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 1000, nullable = false)
+    @Column(name = "imposto", length = 1000, nullable = false)
     private double imposto;
-    @Column(length = 1000, nullable = false)
+    @Column(name = "custo_variavel", length = 1000, nullable = false)
     private double custoVariavel;
-    @Column(length = 1000, nullable = false)
+    @Column(name = "custo_fixo", length = 1000, nullable = false)
     private double custoFixo;
-    @Column(length = 5, nullable = false)
+    @Column(name = "margem_lucro", length = 5, nullable = false)
     private double margemLucro;
-    @Column(length = 8, nullable = false)
+    @Column(name = "data_processamento", length = 8, nullable = false)
     private Date dataProcessamento;
 
     public Custo(double imposto,double custoFixo,double custoVariavel,double margemLucro, Date dataProcessamento){

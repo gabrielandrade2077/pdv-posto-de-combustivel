@@ -18,7 +18,7 @@ public class Preco {
     private BigDecimal valor;
     @Column(length = 8, nullable = false)
     private Date dataAlteracao;
-    @Column(length = 8, nullable = false)
+    @Column(nullable = false)
     private Date horaAlteracao;
 
     public Preco(BigDecimal valor, Date dataAlteracao, Date horaAlteracao) {
