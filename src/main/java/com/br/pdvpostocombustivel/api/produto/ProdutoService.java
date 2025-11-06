@@ -71,6 +71,7 @@ public class ProdutoService {
 
     private ProdutoResponse toResponse(Produto p) {
         return new ProdutoResponse(
+                p.getId(), // Corrigido
                 p.getNome(),
                 p.getReferencia(),
                 p.getFornecedor(),

@@ -4,9 +4,11 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public record EstoqueRequest(
-    BigDecimal quantidade,
-    String localTanque,
-    String localEndereco,
-    String loteFabricacao,
-    Date dataValidade
-) {}
+        Long produtoId,
+        BigDecimal quantidade,
+        String localTanque,
+        String localEndereco,
+        String loteFabricacao,
+        Date dataValidade
+) {
+}

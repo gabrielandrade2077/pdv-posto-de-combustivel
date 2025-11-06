@@ -3,7 +3,9 @@ package com.br.pdvpostocombustivel.api.estoque;
 import com.br.pdvpostocombustivel.api.estoque.dto.EstoqueRequest;
 import com.br.pdvpostocombustivel.api.estoque.dto.EstoqueResponse;
 import com.br.pdvpostocombustivel.domain.entity.Estoque;
+import com.br.pdvpostocombustivel.domain.entity.Produto;
 import com.br.pdvpostocombustivel.domain.repository.EstoqueRepository;
+import com.br.pdvpostocombustivel.domain.repository.ProdutoRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -16,9 +18,11 @@ import org.springframework.transaction.annotation.Transactional;
 public class EstoqueService {
 
     private final EstoqueRepository repository;
+    private final ProdutoRepository produtoRepository; // Adicionado
 
-    public EstoqueService(EstoqueRepository repository) {
+    public EstoqueService(EstoqueRepository repository, ProdutoRepository produtoRepository) { // Adicionado
         this.repository = repository;
+        this.produtoRepository = produtoRepository; // Adicionado
     }
 
     public EstoqueResponse create(EstoqueRequest req) {
@@ -43,6 +47,10 @@ public class EstoqueService {
         Estoque e = repository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Estoque não encontrado. id=" + id));
 
+        Produto produto = produtoRepository.findById(req.produtoId())
+                .orElseThrow(() -> new IllegalArgumentException("Produto não encontrado. id=" + req.produtoId()));
+
+        e.setProduto(produto);
         e.setQuantidade(req.quantidade());
         e.setLocalTanque(req.localTanque());
         e.setLocalEndereco(req.localEndereco());
@@ -60,7 +68,11 @@ public class EstoqueService {
     }
 
     private Estoque toEntity(EstoqueRequest req) {
+        Produto produto = produtoRepository.findById(req.produtoId())
+                .orElseThrow(() -> new IllegalArgumentException("Produto não encontrado. id=" + req.produtoId()));
+
         return new Estoque(
+                produto,
                 req.quantidade(),
                 req.localTanque(),
                 req.localEndereco(),
@@ -71,6 +83,7 @@ public class EstoqueService {
 
     private EstoqueResponse toResponse(Estoque e) {
         return new EstoqueResponse(
+                e.getProduto(),
                 e.getQuantidade(),
                 e.getLocalTanque(),
                 e.getLocalEndereco(),

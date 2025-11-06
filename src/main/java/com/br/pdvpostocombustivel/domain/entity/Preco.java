@@ -14,6 +14,10 @@ public class Preco {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "produto_id", nullable = false)
+    private Produto produto;
+
     @Column(length = 10, nullable = false)
     private BigDecimal valor;
     @Column(length = 8, nullable = false)
@@ -21,13 +25,22 @@ public class Preco {
     @Column(nullable = false)
     private Date horaAlteracao;
 
-    public Preco(BigDecimal valor, Date dataAlteracao, Date horaAlteracao) {
+    public Preco(Produto produto, BigDecimal valor, Date dataAlteracao, Date horaAlteracao) {
+        this.produto = produto;
         this.valor = valor;
         this.dataAlteracao = dataAlteracao;
         this.horaAlteracao = horaAlteracao;
     }
 
     public Preco() {
+    }
+
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public void setProduto(Produto produto) {
+        this.produto = produto;
     }
 
     public BigDecimal getValor() {

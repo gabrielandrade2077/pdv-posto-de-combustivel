@@ -31,6 +31,10 @@ public class Produto {
     public Produto() {
     }
 
+    public Long getId() { // Adicionado
+        return id;
+    }
+
     public String getNome() {
         return nome;
     }

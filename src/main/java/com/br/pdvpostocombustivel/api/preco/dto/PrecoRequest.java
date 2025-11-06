@@ -4,7 +4,9 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public record PrecoRequest(
-    BigDecimal valor,
-    Date dataAlteracao,
-    Date horaAlteracao
-) {}
+        Long produtoId,
+        BigDecimal valor,
+        Date dataAlteracao,
+        Date horaAlteracao
+) {
+}

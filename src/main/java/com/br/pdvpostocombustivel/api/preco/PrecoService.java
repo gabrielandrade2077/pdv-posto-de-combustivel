@@ -3,7 +3,9 @@ package com.br.pdvpostocombustivel.api.preco;
 import com.br.pdvpostocombustivel.api.preco.dto.PrecoRequest;
 import com.br.pdvpostocombustivel.api.preco.dto.PrecoResponse;
 import com.br.pdvpostocombustivel.domain.entity.Preco;
+import com.br.pdvpostocombustivel.domain.entity.Produto;
 import com.br.pdvpostocombustivel.domain.repository.PrecoRepository;
+import com.br.pdvpostocombustivel.domain.repository.ProdutoRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -11,14 +13,18 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
+
 @Service
 @Transactional
 public class PrecoService {
 
     private final PrecoRepository repository;
+    private final ProdutoRepository produtoRepository;
 
-    public PrecoService(PrecoRepository repository) {
+    public PrecoService(PrecoRepository repository, ProdutoRepository produtoRepository) {
         this.repository = repository;
+        this.produtoRepository = produtoRepository;
     }
 
     public PrecoResponse create(PrecoRequest req) {
@@ -43,9 +49,13 @@ public class PrecoService {
         Preco p = repository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Preco não encontrado. id=" + id));
 
+        Produto produto = produtoRepository.findById(req.produtoId())
+                .orElseThrow(() -> new IllegalArgumentException("Produto não encontrado. id=" + req.produtoId()));
+
+        p.setProduto(produto);
         p.setValor(req.valor());
-        p.setDataAlteracao(req.dataAlteracao());
-        p.setHoraAlteracao(req.horaAlteracao());
+        p.setDataAlteracao(new Date());
+        p.setHoraAlteracao(new Date());
 
         return toResponse(repository.save(p));
     }
@@ -58,15 +68,20 @@ public class PrecoService {
     }
 
     private Preco toEntity(PrecoRequest req) {
+        Produto produto = produtoRepository.findById(req.produtoId())
+                .orElseThrow(() -> new IllegalArgumentException("Produto não encontrado. id=" + req.produtoId()));
+
         return new Preco(
+                produto,
                 req.valor(),
-                req.dataAlteracao(),
-                req.horaAlteracao()
+                new Date(),
+                new Date()
         );
     }
 
     private PrecoResponse toResponse(Preco p) {
         return new PrecoResponse(
+                p.getProduto(),
                 p.getValor(),
                 p.getDataAlteracao(),
                 p.getHoraAlteracao()
