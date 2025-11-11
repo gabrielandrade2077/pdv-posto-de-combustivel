@@ -2,6 +2,7 @@ package com.br.pdvpostocombustivel;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 // OpenAPI / Swagger
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
@@ -11,6 +12,7 @@ import io.swagger.v3.oas.annotations.info.License;
 import io.swagger.v3.oas.annotations.servers.Server;
 
 @SpringBootApplication
+@ComponentScan(basePackages = "com.br.pdvpostocombustivel.*")
 @OpenAPIDefinition(
         info = @Info(
                 title = "PDV Posto Combustível API",

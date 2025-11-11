@@ -48,6 +48,7 @@ public class ProdutoService {
         p.setFornecedor(req.fornecedor());
         p.setCategoria(req.categoria());
         p.setMarca(req.marca());
+        p.setPrecoVenda(req.precoVenda());
 
         return toResponse(repository.save(p));
     }
@@ -65,7 +66,8 @@ public class ProdutoService {
                 req.referencia(),
                 req.fornecedor(),
                 req.categoria(),
-                req.marca()
+                req.marca(),
+                req.precoVenda()
         );
     }
 
@@ -76,7 +78,8 @@ public class ProdutoService {
                 p.getReferencia(),
                 p.getFornecedor(),
                 p.getCategoria(),
-                p.getMarca()
+                p.getMarca(),
+                p.getPrecoVenda()
         );
     }
 }

@@ -1,6 +1,7 @@
 package com.br.pdvpostocombustivel.domain.entity;
 
 import jakarta.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "produto")
@@ -20,12 +21,16 @@ public class Produto {
     @Column(length = 100, nullable = false)
     private String marca;
 
-    public Produto(String nome,String referencia,String fornecedor, String categoria, String marca){
+    @Column(name = "preco_venda", precision = 10, scale = 2)
+    private BigDecimal precoVenda;
+
+    public Produto(String nome,String referencia,String fornecedor, String categoria, String marca, BigDecimal precoVenda){
         this.nome = nome;
         this.referencia = referencia;
         this.fornecedor = fornecedor;
         this.categoria = categoria;
         this.marca = marca;
+        this.precoVenda = precoVenda;
     }
 
     public Produto() {
@@ -55,6 +60,10 @@ public class Produto {
         return referencia;
     }
 
+    public BigDecimal getPrecoVenda() {
+        return precoVenda;
+    }
+
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
@@ -73,5 +82,9 @@ public class Produto {
 
     public void setReferencia(String referencia) {
         this.referencia = referencia;
+    }
+
+    public void setPrecoVenda(BigDecimal precoVenda) {
+        this.precoVenda = precoVenda;
     }
 }
