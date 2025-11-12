@@ -1,4 +1,4 @@
-package com.br.pdvpostocombustivel.domain.dto;
+package com.br.pdvpostocombustivel.api.bomba.dto;
 
 import java.math.BigDecimal;
 

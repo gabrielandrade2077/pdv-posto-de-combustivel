@@ -1,8 +1,7 @@
-package com.br.pdvpostocombustivel.controller;
+package com.br.pdvpostocombustivel.api.abastecimento;
 
-import com.br.pdvpostocombustivel.domain.dto.AbastecimentoInputDTO;
+import com.br.pdvpostocombustivel.api.abastecimento.dto.AbastecimentoInputDTO;
 import com.br.pdvpostocombustivel.domain.entity.Abastecimento;
-import com.br.pdvpostocombustivel.domain.service.AbastecimentoService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;

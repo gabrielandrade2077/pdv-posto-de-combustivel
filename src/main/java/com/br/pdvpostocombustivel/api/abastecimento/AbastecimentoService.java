@@ -1,6 +1,6 @@
-package com.br.pdvpostocombustivel.domain.service;
+package com.br.pdvpostocombustivel.api.abastecimento;
 
-import com.br.pdvpostocombustivel.domain.dto.AbastecimentoInputDTO;
+import com.br.pdvpostocombustivel.api.abastecimento.dto.AbastecimentoInputDTO;
 import com.br.pdvpostocombustivel.domain.entity.Abastecimento;
 import com.br.pdvpostocombustivel.domain.entity.Bico;
 import com.br.pdvpostocombustivel.domain.repository.AbastecimentoRepository;

@@ -1,8 +1,8 @@
-package com.br.pdvpostocombustivel.domain.service;
+package com.br.pdvpostocombustivel.api.bomba;
 
-import com.br.pdvpostocombustivel.domain.dto.BicoResponseDTO;
-import com.br.pdvpostocombustivel.domain.dto.BombaResponseDTO;
-import com.br.pdvpostocombustivel.domain.dto.ProdutoResponseDTO;
+import com.br.pdvpostocombustivel.api.bomba.dto.BicoResponseDTO;
+import com.br.pdvpostocombustivel.api.bomba.dto.BombaResponseDTO;
+import com.br.pdvpostocombustivel.api.bomba.dto.ProdutoResponseDTO;
 import com.br.pdvpostocombustivel.domain.entity.Bomba;
 import com.br.pdvpostocombustivel.domain.repository.BombaRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,6 @@
-package com.br.pdvpostocombustivel.controller;
+package com.br.pdvpostocombustivel.api.bomba;
 
-import com.br.pdvpostocombustivel.domain.dto.BombaResponseDTO;
-import com.br.pdvpostocombustivel.domain.service.BombaService;
+import com.br.pdvpostocombustivel.api.bomba.dto.BombaResponseDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
